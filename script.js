@@ -68,9 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
             navigator.clipboard.writeText(emailTexto).then(() => {
                 // Feedback visual temporal
                 btnCopiar.innerText = '¡Copiado!';
-                btnCopiar.style.borderColor = '#ff0055';
-                btnCopiar.style.color = '#ff0055';
-                btnCopiar.style.boxShadow = '0 0 10px #ff0055';
+                btnCopiar.style.borderColor = '#00ff66';
+                btnCopiar.style.color = '#00ff66';
+                btnCopiar.style.boxShadow = '0 0 10px #00ff66';
 
                 // Volver al estado original después de 2 segundos
                 setTimeout(() => {
