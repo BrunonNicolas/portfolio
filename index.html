@@ -32,12 +32,12 @@
         <!-- SECCIÓN 2: SOBRE MÍ -->
         <section id="sobre-mi">
             <h2>Sobre Mí</h2>
-            <p>Cuento con una sólida trayectoria de 12 años coordinando procesos de producción y control de calidad en la industria gráfica. Actualmente, me encuentro redefiniendo mi perfil profesional hacia el desarrollo de software, cursando el segundo año de la carrera de Desarrollo Web en la UNLaM.</p>
+            <p>Cuento con una sólida trayectoria de 10 años coordinando procesos de producción y control de calidad en la industria gráfica. Actualmente, me encuentro redefiniendo mi perfil profesional hacia el desarrollo de software, cursando el segundo año de la carrera de Desarrollo Web en la UNLaM.</p>
             <p>Mi fuerte está en la lógica de programación y el diseño de soluciones estructuradas, respaldado por un rendimiento de excelencia académica en materias troncales de desarrollo.</p>
             
             <h3>Tecnologías & Herramientas</h3>
             <ul>
-                <li>Java</li>
+                <li>Java (Programación Básica - UNLaM)</li>
                 <li>HTML5 & CSS3</li>
                 <li>JavaScript</li>
                 <li>Python</li>
@@ -49,26 +49,35 @@
         <section id="proyectos">
             <h2>Mis Proyectos</h2>
             
-            <!-- Proyecto 1: La Ticketera (Java) -->
-            <article>
-                <h3>Sistema "Ticketera Mundial" (Lógica de Negocio)</h3>
-                <p>Aplicación de consola para la gestión automatizada de partidos, venta de entradas segmentadas y control de accesos en molinetes. Desarrollada en Java aplicando Programación Orientada a Objetos (POO), encapsulamiento estricto y una matriz de 5x5 para la asignación de ubicaciones numeradas en el sector Palco VIP.</p>
-                <span>Java / POO / Estructuras Estáticas</span>
-            </article>
+            <!-- Botones de Filtro Dinámico -->
+            <div class="filtros-container">
+                <button class="btn-filtro active" data-categoria="todos">Todos</button>
+                <button class="btn-filtro" data-categoria="java">Java / Lógica</button>
+                <button class="btn-filtro" data-categoria="diseno">Diseño Web</button>
+            </div>
+            
+            <div class="proyectos-grid">
+                <!-- Proyecto 1: La Ticketera (Java) -->
+                <article data-categoria="java">
+                    <h3>Sistema "Ticketera Mundial" (Lógica de Negocio)</h3>
+                    <p>Aplicación de consola para la gestión automatizada de partidos, venta de entradas segmentadas y control de accesos en molinetes. Desarrollada en Java aplicando Programación Orientada a Objetos (POO), encapsulamiento estricto y una matriz de 5x5 para la asignación de ubicaciones numeradas en el sector Palco VIP.</p>
+                    <span>Java / POO / Estructuras Estáticas</span>
+                </article>
 
-            <!-- Proyecto 2: ECOBLOQ (Frontend) -->
-            <article>
-                <h3>Sitio Web Institucional - ECOBLOQ</h3>
-                <p>Diseño y maquetación estática de la interfaz web para ECOBLOQ. Enfocado en la estructuración de la información, consistencia visual de la marca y la creación de componentes reutilizables utilizando buenas prácticas de arquitectura CSS.</p>
-                <span>HTML5 / CSS3 / Diseño Web</span>
-            </article>
+                <!-- Proyecto 2: ECOBLOQ (Frontend) -->
+                <article data-categoria="diseno">
+                    <h3>Sitio Web Institucional - ECOBLOQ</h3>
+                    <p>Diseño y maquetación estática de la interfaz web para ECOBLOQ. Enfocado en la estructuración de la información, consistencia visual de la marca y la creación de componentes reutilizables utilizando buenas prácticas de arquitectura CSS.</p>
+                    <span>HTML5 / CSS3 / Diseño Web</span>
+                </article>
 
-            <!-- Proyecto 3: Algoritmia Académica (Ciencia de la Computación) -->
-            <article>
-                <h3>Módulo de Algoritmia y Estructuras de Datos</h3>
-                <p>Repositorio de soluciones lógicas desarrolladas para exámenes técnicos universitarios. Incluye algoritmos de optimización de código, análisis sintáctico de texto (evaluadores de palabras) y resolución automatizada de sistemas matriciales complejos.</p>
-                <span>Java / Eclipse / Lógica Matemática</span>
-            </article>
+                <!-- Proyecto 3: Algoritmia Académica (Ciencia de la Computación) -->
+                <article data-categoria="java">
+                    <h3>Módulo de Algoritmia y Estructuras de Datos</h3>
+                    <p>Repositorio de soluciones lógicas desarrolladas para exámenes técnicos universitarios. Incluye algoritmos de optimización de código, análisis sintáctico de texto (evaluadores de palabras) y resolución automatizada de sistemas matriciales complejos.</p>
+                    <span>Java / Eclipse / Lógica Matemática</span>
+                </article>
+            </div>
         </section>
 
         <!-- SECCIÓN 4: CONTACTO -->
@@ -77,10 +86,11 @@
             <p>¿Estás buscando un perfil proactivo, con experiencia en resolución de problemas y sólida formación técnica? ¡Conectemos!</p>
             <ul>
                 <li>
-                    <a href="mailto:slmds1773@gmail.com">
+                    <div class="contacto-email-box">
                         <strong>Email</strong>
-                        slmds1773@gmail.com
-                    </a>
+                        <span id="email-texto">slmds1773@gmail.com</span>
+                        <button id="btn-copiar" class="btn-cyber-mini">Copiar</button>
+                    </div>
                 </li>
                 <li>
                     <a href="https://wa.me/5491138755928" target="_blank" rel="noopener noreferrer">
@@ -91,7 +101,7 @@
                 <li>
                     <div>
                         <strong>Ubicación</strong>
-                        Buenos Aires
+                        Merlo, Zona Oeste
                     </div>
                 </li>
             </ul>
@@ -102,6 +112,8 @@
     <footer>
         <p>&copy; 2026 Bruno Birman. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- CONEXIÓN DEL SCRIPT -->
     <script src="script.js"></script>
 </body>
 </html>

@@ -338,3 +338,75 @@ footer {
     article { padding: 2rem; }
     section::before { display: none; }
 }
+
+/* ==========================================================================
+   NUEVOS ESTILOS INTERACTIVOS (FILTROS, COPIAR Y EFECTOS)
+   ========================================================================== */
+
+/* Contenedor de botones de filtro */
+.filtros-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* Botones con estética Cyberpunk */
+.btn-filtro, .btn-cyber-mini {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #00f0ff;
+    color: #00f0ff;
+    padding: 8px 16px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
+}
+
+.btn-filtro:hover, .btn-cyber-mini:hover {
+    background: #00f0ff;
+    color: #000;
+    box-shadow: 0 0 15px #00f0ff;
+}
+
+/* Estado del botón activo */
+.btn-filtro.active {
+    background: #00f0ff;
+    color: #000;
+    box-shadow: 0 0 15px #00f0ff;
+    font-weight: bold;
+}
+
+/* Caja de email con alineación */
+.contacto-email-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-cyber-mini {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+}
+
+/* EFECTO INDUSTRIAL MEJORADO: Reactividad al pasar el mouse por las tarjetas */
+article {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+article:hover {
+    border-color: #ff0055 !important; /* El borde cambia a un tono neón contrastante */
+    transform: translateY(-5px) scale(1.01) !important;
+    box-shadow: 0 0 25px rgba(255, 0, 85, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2) !important;
+}
+
+/* Clase auxiliar para cuando JavaScript oculta proyectos */
+.oculto {
+    display: none !important;
+}
