@@ -228,6 +228,42 @@ p {
     box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
 }
 
+/* Contenedor de botones de filtro */
+.filtros-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* Botones con estética Cyberpunk */
+.btn-filtro {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #00f0ff;
+    color: #00f0ff;
+    padding: 8px 16px;
+    font-family: var(--font-titulos);
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
+}
+
+.btn-filtro:hover {
+    background: #00f0ff;
+    color: #000;
+    box-shadow: 0 0 15px #00f0ff;
+}
+
+.btn-filtro.active {
+    background: #00f0ff;
+    color: #000;
+    box-shadow: 0 0 15px #00f0ff;
+    font-weight: bold;
+}
+
 /* Tarjetas de Proyectos Avanzadas (Aspecto de Panel) */
 #proyectos {
     display: flex;
@@ -239,13 +275,13 @@ article {
     background-color: var(--bg-tarjetas);
     border: 1px solid var(--borde);
     padding: 3rem;
-    border-radius: 4px; /* Ángulos rectos más industriales */
+    border-radius: 4px; 
     position: relative;
     overflow: hidden;
-    transition: var(--transition-sharp);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
 }
 
-/* Pequeño detalle gráfico en la esquina superior derecha del panel */
+/* Detalle gráfico en la esquina superior derecha del panel */
 article::before {
     content: '';
     position: absolute;
@@ -258,15 +294,13 @@ article::before {
 }
 
 article:hover {
-    transform: translateX(4px);
-    border-color: var(--color-acento);
-    box-shadow: 
-        -5px 5px 0px rgba(0, 242, 254, 0.2),
-        0 20px 40px rgba(0, 0, 0, 0.6);
+    border-color: #ff0055 !important; /* Borde magenta neón reactivo */
+    transform: translateY(-5px) scale(1.01) !important;
+    box-shadow: 0 0 25px rgba(255, 0, 85, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2) !important;
 }
 
 article:hover::before {
-    background-color: var(--color-acento);
+    background-color: #ff0055;
 }
 
 article span {
@@ -281,17 +315,33 @@ article span {
     padding-left: 0.7rem;
 }
 
-/* Grilla de Canales de Contacto */
+/* Clase auxiliar para cuando JavaScript oculta proyectos */
+.oculto {
+    display: none !important;
+}
+
+/* ==========================================================================
+   6. BLOQUE DE CONTACTO PREMIUM (SIMETRÍA COMPLETA Y ALINEACIÓN)
+   ========================================================================== */
 #contacto ul {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
+    align-items: stretch; /* Obliga a todas las tarjetas a tener la misma altura */
+}
+
+#contacto li {
+    display: flex;
 }
 
 #contacto li a, #contacto li div {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    width: 100%;
+    min-height: 125px; /* Asegura un alto mínimo uniforme */
     background-color: var(--bg-tarjetas);
     border: 1px solid var(--borde);
     padding: 2rem;
@@ -300,6 +350,7 @@ article span {
     color: var(--texto-gris);
     font-size: 0.95rem;
     transition: var(--transition-sharp);
+    position: relative; /* Necesario para colocar el botón absoluto */
 }
 
 #contacto li a:hover {
@@ -319,7 +370,41 @@ article span {
     margin-bottom: 0.5rem;
 }
 
-/* Footer */
+/* Caja contenedora del Email */
+.contacto-email-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Rediseño del botón flotante absoluto */
+.btn-cyber-mini {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--color-acento);
+    color: var(--color-acento);
+    padding: 3px 8px;
+    font-family: var(--font-titulos);
+    font-size: 0.65rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
+    border-radius: 2px;
+}
+
+.btn-cyber-mini:hover {
+    background: var(--color-acento);
+    color: #000;
+    box-shadow: 0 0 10px var(--color-acento);
+}
+
+/* ==========================================================================
+   7. FOOTER Y RESPONSIVE
+   ========================================================================== */
 footer {
     text-align: center;
     padding: 6rem 2rem;
@@ -330,83 +415,11 @@ footer {
     border-top: 1px solid var(--borde);
 }
 
-/* Adaptabilidad Móvil Extrema */
 @media (max-width: 768px) {
     h1 { font-size: 2.6rem; }
     #inicio h2 { font-size: 1.2rem; }
     nav ul { gap: 1.5rem; padding: 1.2rem; }
     article { padding: 2rem; }
     section::before { display: none; }
-}
-
-/* ==========================================================================
-   NUEVOS ESTILOS INTERACTIVOS (FILTROS, COPIAR Y EFECTOS)
-   ========================================================================== */
-
-/* Contenedor de botones de filtro */
-.filtros-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-/* Botones con estética Cyberpunk */
-.btn-filtro, .btn-cyber-mini {
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid #00f0ff;
-    color: #00f0ff;
-    padding: 8px 16px;
-    font-family: inherit;
-    font-size: 0.9rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
-}
-
-.btn-filtro:hover, .btn-cyber-mini:hover {
-    background: #00f0ff;
-    color: #000;
-    box-shadow: 0 0 15px #00f0ff;
-}
-
-/* Estado del botón activo */
-.btn-filtro.active {
-    background: #00f0ff;
-    color: #000;
-    box-shadow: 0 0 15px #00f0ff;
-    font-weight: bold;
-}
-
-/* Caja de email con alineación */
-.contacto-email-box {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.btn-cyber-mini {
-    padding: 4px 10px;
-    font-size: 0.75rem;
-}
-
-/* EFECTO INDUSTRIAL MEJORADO: Reactividad al pasar el mouse por las tarjetas */
-article {
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
-}
-
-article:hover {
-    border-color: #ff0055 !important; /* El borde cambia a un tono neón contrastante */
-    transform: translateY(-5px) scale(1.01) !important;
-    box-shadow: 0 0 25px rgba(255, 0, 85, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2) !important;
-}
-
-/* Clase auxiliar para cuando JavaScript oculta proyectos */
-.oculto {
-    display: none !important;
+    #contacto ul { grid-template-columns: 1fr; }
 }
