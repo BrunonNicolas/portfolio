@@ -1,0 +1,179 @@
+/* ==========================================================================
+   1. VARIABLES DE COLOR Y RESETEO BASE
+   ========================================================================== */
+:root {
+    --bg-principal: #0f172a;    /* Azul marino oscuro profundo */
+    --bg-tarjetas: #1e293b;     /* Gris azulado para bloques y tarjetas */
+    --texto-blanco: #f8fafc;    /* Blanco suave para que no queme los ojos */
+    --texto-gris: #94a3b8;      /* Gris claro para descripciones */
+    --color-acento: #38bdf8;    /* Celeste de alta visibilidad para links/detalles */
+    --borde: #334155;           /* Gris sutil para separar secciones */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Para que al hacer clic en el menú baje suavemente */
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-blanco);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. CABECERA Y MENÚ DE NAVEGACIÓN (FLEXBOX)
+   ========================================================================== */
+header {
+    background-color: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(8px); /* Efecto esmerilado moderno */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid var(--borde);
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--texto-blanco);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-acento);
+}
+
+/* ==========================================================================
+   3. MAQUETADO DE SECCIONES (LAYOUT)
+   ========================================================================== */
+main {
+    max-width: 800px;
+    margin: 6rem auto 2rem auto; /* Margen superior para que no tape el menú fijo */
+    padding: 0 1.5rem;
+}
+
+section {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--borde);
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; color: var(--texto-blanco); }
+h2 { font-size: 1.8rem; color: var(--color-acento); }
+p { color: var(--texto-gris); margin-bottom: 1rem; }
+
+/* Sección Inicio (Hero) */
+#inicio {
+    text-align: center;
+    padding: 6rem 0;
+}
+
+#inicio a {
+    display: inline-block;
+    background-color: var(--color-acento);
+    color: var(--bg-principal);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: transform 0.2s;
+}
+
+#inicio a:hover {
+    transform: scale(1.05);
+}
+
+/* Lista de Tecnologías en Bloques Modernos */
+#sobre-mi ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin-top: 1rem;
+}
+
+#sobre-mi li {
+    background-color: var(--bg-tarjetas);
+    border: 1px solid var(--borde);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--texto-blanco);
+}
+
+/* ==========================================================================
+   4. TARJETAS DE PROYECTOS (DISEÑO PROFESIONAL)
+   ========================================================================== */
+#proyectos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+article {
+    background-color: var(--bg-tarjetas);
+    border: 1px solid var(--borde);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+article span {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--color-acento);
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   5. CONTACTO Y FOOTER
+   ========================================================================== */
+#contacto ul {
+    list-style: none;
+}
+
+#contacto li {
+    margin-bottom: 0.5rem;
+    color: var(--texto-gris);
+}
+
+#contacto strong {
+    color: var(--texto-blanco);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--texto-gris);
+    font-size: 0.85rem;
+}
+
+/* Responsive Design básico para celulares */
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    nav ul { gap: 1rem; }
+}
