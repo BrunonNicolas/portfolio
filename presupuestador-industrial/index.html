@@ -3,166 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Propulsor // Sistema de Costos Industriales</title>
+    <title>Bruno Birman | Desarrollador Web & Especialista Gráfico</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+    <!-- CABECERA Y NAVEGACIÓN -->
     <header>
-        <div class="nav-container">
-            <span class="logo">PROPULSOR // OPERACIONES & COSTOS</span>
-            <a href="C:\Users\Administrador\Desktop\Portfolo-Bruno\index.html" class="btn-volver">← Volver al Portfolio</a>
-        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main class="contenedor-calculadora">
-        <div class="titulo-seccion">
-            <h1>PRESUPUESTADOR INDUSTRIAL</h1>
-            <p>Módulo de cálculo avanzado para optimización de mermas, cubicaje de stock rígido y costos de proceso.</p>
-        </div>
+    <main>
+        <!-- SECCIÓN 1: HERO / PRESENTACIÓN -->
+        <section id="inicio">
+            <h1>Hola, soy Bruno Birman</h1>
+            <h2>Desarrollador Web & Especialista en Producción Gráfica</h2>
+            <p>Transformando lógica y diseño en aplicaciones web reales, eficientes y bien estructuradas.</p>
+            <a href="#proyectos">Ver mis proyectos</a>
+        </section>
 
-        <div class="panel-grilla">
-            <!-- COLUMNA 1: FORMULARIO DE ENTRADA DE DATOS -->
-            <section class="panel-entrada animate-fade-in">
-                <h2>📂 Parámetros de Producción</h2>
-                <form id="form-presupuesto">
-                    
-                    <!-- Selección de Material -->
-                    <div class="grupo-control">
-                        <label for="material">Material Base</label>
-                        <select id="material" required>
-                            <option value="" disabled selected>Seleccione una placa...</option>
-                            <option value="pvc-3">Foam / PVC Espumado 3mm (Placa 1.22x2.44m)</option>
-                            <option value="pvc-5">Foam / PVC Espumado 5mm (Placa 1.22x2.44m)</option>
-                            <option value="alto-impacto">Alto Impacto 2mm (Placa 1.00x2.00m)</option>
-                            <option value="mdf-5">MDF 5mm (Placa 1.83x2.60m)</option>
-                            <option value="corrugado">Corrugado Plástico 4mm (Placa 1.00x1.20m)</option>
-                        </select>
+        <!-- SECCIÓN 2: SOBRE MÍ -->
+        <section id="sobre-mi">
+            <h2>Sobre Mí</h2>
+            <p>Cuento con una sólida trayectoria de 12 años coordinando procesos de producción y control de calidad en la industria gráfica. Actualmente, me encuentro redefiniendo mi perfil profesional hacia el desarrollo de software, cursando el segundo año de la carrera de Desarrollo Web en la UNLaM.</p>
+            <p>Mi fuerte está en la lógica de programación y el diseño de soluciones estructuradas, respaldado por un rendimiento de excelencia académica en materias troncales de desarrollo.</p>
+            
+            <h3>Tecnologías & Herramientas</h3>
+            <ul>
+                <li>Java</li>
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Control de Calidad & Gestión de Procesos</li>
+            </ul>
+        </section>
+
+        <!-- SECCIÓN 3: PROYECTOS -->
+        <section id="proyectos">
+            <h2>Mis Proyectos</h2>
+            
+            <!-- Botones de Filtro Dinámico -->
+            <div class="filtros-container">
+                <button class="btn-filtro active" data-categoria="todos">Todos</button>
+                <button class="btn-filtro" data-categoria="java">Java / Lógica</button>
+                <button class="btn-filtro" data-categoria="diseno">Diseño Web</button>
+            </div>
+            
+            <div class="proyectos-grid">
+                <!-- Proyecto 1: La Ticketera (Java) -->
+                <article data-categoria="java">
+                    <h3>Sistema "Ticketera Mundial" (Lógica de Negocio)</h3>
+                    <p>Aplicación de consola para la gestión automatizada de partidos, venta de entradas segmentadas y control de accesos en molinetes. Desarrollada en Java aplicando Programación Orientada a Objetos (POO), encapsulamiento estricto y una matriz de 5x5 para la asignación de ubicaciones numeradas en el sector Palco VIP.</p>
+                    <span>Java / POO / Estructuras Estáticas</span>
+                </article>
+
+                <!-- Proyecto 2: ECOBLOQ (Frontend) -->
+                <article data-categoria="diseno">
+                    <h3>Sitio Web Institucional - ECOBLOQ</h3>
+                    <p>Diseño y maquetación estática de la interfaz web para ECOBLOQ. Enfocado en la estructuración de la información, consistencia visual de la marca y la creación de componentes reutilizables utilizando buenas prácticas de arquitectura CSS.</p>
+                    <span>HTML5 / CSS3 / Diseño Web</span>
+                </article>
+
+                <!-- Proyecto 3: Algoritmia Académica (Ciencia de la Computación) -->
+                <article data-categoria="java">
+                    <h3>Módulo de Algoritmia y Estructuras de Datos</h3>
+                    <p>Repositorio de soluciones lógicas desarrolladas para exámenes técnicos universitarios. Incluye algoritmos de optimización de código, análisis sintáctico de texto (evaluadores de palabras) y resolución automatizada de sistemas matriciales complejos.</p>
+                    <span>Java / Eclipse / Lógica Matemática</span>
+                </article>
+
+                 <!-- Proyecto 4: Presupuestador Industrial -->
+                <article data-categoria="diseno">
+                    <h3>🛠️ Presupuestador Industrial Gráfico</h3>
+                    <p>Aplicación web para la estimación de costos operacionales, cubicaje de materiales rígidos/flexibles y optimización de mermas con ruteado CNC en tiempo real.</p>
+                    <span>JavaScript ES6+ / CSS Variables / Lógica Industrial</span>
+                    <div style="margin-top: 1rem; display: flex; gap: 10px;">
+                     <a href="C:\Users\Administrador\Desktop\Portfolo-Bruno\presupuestador-industrial\index.html" class="btn-cta">🌐 Probar Aplicación</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: CONTACTO -->
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>¿Estás buscando un perfil proactivo, con experiencia en resolución de problemas y sólida formación técnica? ¡Conectemos!</p>
+            <ul>
+                <li>
+                    <div class="contacto-email-box">
+                        <strong>Email</strong>
+                        <span id="email-texto">slmds1773@gmail.com</span>
+                        <button id="btn-copiar" class="btn-cyber-mini">Copiar</button>
                     </div>
-
-                    <!-- Dimensiones de la pieza -->
-                    <div class="fila-controles">
-                        <div class="grupo-control">
-                            <label for="ancho">Ancho de Pieza (cm)</label>
-                            <input type="number" id="ancho" min="1" placeholder="Ej: 50" required>
-                        </div>
-                        <div class="grupo-control">
-                            <label for="alto">Alto de Pieza (cm)</label>
-                            <input type="number" id="alto" min="1" placeholder="Ej: 70" required>
-                        </div>
+                </li>
+                <li>
+                    <a href="https://wa.me/5491138755928" target="_blank" rel="noopener noreferrer">
+                        <strong>Teléfono / WhatsApp</strong>
+                        11-3875-5928
+                    </a>
+                </li>
+                <li>
+                    <div>
+                        <strong>Ubicación</strong>
+                        Buenos Aires
                     </div>
-
-                    <!-- Cantidad de piezas -->
-                    <div class="grupo-control">
-                        <label for="cantidad">Cantidad de Unidades</label>
-                        <input type="number" id="cantidad" min="1" value="1" required>
-                    </div>
-
-                    <h2 class="subtitulo-panel">⚙️ Variables de Proceso</h2>
-
-                    <!-- Configuración del Router CNC / Corte -->
-                    <div class="grupo-control check-box-container">
-                        <input type="checkbox" id="requiere-cnc">
-                        <label for="requiere-cnc">Requiere ruteado / troquelado CNC</label>
-                    </div>
-
-                    <!-- Desperdicio y Margen Comercial -->
-                    <div class="fila-controles">
-                        <div class="grupo-control">
-                            <label for="merma">Merma / Desperdicio (%)</label>
-                            <input type="number" id="merma" min="0" max="100" placeholder="10">
-                        </div>
-                        <div class="grupo-control">
-                            <label for="margen">Margen de Ganancia (%)</label>
-                            <input type="number" id="margen" min="0" placeholder="50" required>
-                        </div>
-                    </div>
-
-                    <button type="submit" id="btn-calcular" class="btn-principal">Calcular Presupuesto</button>
-                </form>
-            </section>
-
-            <!-- COLUMNA 2: DESGLOSE DE COSTOS Y PRECIO DE VENTA -->
-            <section class="panel-resultados">
-                <h2>📊 Reporte Técnico de Costos</h2>
-                
-                <div class="resultado-placeholder" id="placeholder-texto">
-                    <p>Ingrese los parámetros del trabajo y ejecute el cálculo para generar la analítica de producción.</p>
-                </div>
-
-                <div class="desglose-contenido oculto" id="desglose-contenido">
-                    
-                    <div class="tarjeta-totales">
-                        <div class="item-total">
-                            <span>PRECIO DE VENTA SUGERIDO</span>
-                            <span class="monto-total" id="res-precio-venta">$ 0.00</span>
-                        </div>
-                    </div>
-
-                    <!-- NUEVO: Gráfico Analítico Visual con CSS Dinámico -->
-                    <div class="contenedor-grafico">
-                        <div class="grafico-torta" id="grafico-costos"></div>
-                        <div class="grafico-leyenda">
-                            <div class="leyenda-item"><span class="dot mat"></span> Material</div>
-                            <div class="leyenda-item"><span class="dot tnt"></span> Tinta</div>
-                            <div class="leyenda-item"><span class="dot cnc"></span> CNC</div>
-                            <div class="leyenda-item"><span class="dot mrm"></span> Merma</div>
-                        </div>
-                    </div>
-
-                    <div class="lista-metricas">
-                        <div class="metrica-header">📐 Logística de Materiales</div>
-                        <div class="metrica-item">
-                            <span>Superficie Neta Req.:</span>
-                            <strong id="res-superficie">0.000 m²</strong>
-                        </div>
-                        <div class="metrica-item">
-                            <span>Cubicaje Estimado de Stock:</span>
-                            <strong id="res-placas-reales" style="color: var(--color-acento);">0 Placas</strong>
-                        </div>
-
-                        <div class="metrica-header" style="margin-top: 1rem;">💰 Estructura de Costos Netos</div>
-                        <div class="metrica-item">
-                            <span>Costo Material Base:</span>
-                            <span id="res-costo-material">$ 0.00</span>
-                        </div>
-                        <div class="metrica-item">
-                            <span>Costo de Impresión (Tinta):</span>
-                            <span id="res-costo-tinta">$ 0.00</span>
-                        </div>
-                        <div class="metrica-item">
-                            <span>Procesamiento Router CNC:</span>
-                            <span id="res-costo-cnc">$ 0.00</span>
-                        </div>
-                        <div class="metrica-item decorado-alerta">
-                            <span>Impacto Financiero Merma:</span>
-                            <span id="res-impacto-merma">$ 0.00</span>
-                        </div>
-                        <div class="metrica-item linea-divisoria">
-                            <strong>COSTO TOTAL DE OPERACIÓN:</strong>
-                            <strong id="res-costo-produccion">$ 0.00</strong>
-                        </div>
-                    </div>
-
-                    <div class="alerta-industrial">
-                        <p>⚠️ <strong>Lógica Comercial de Mermas:</strong> El porcentaje de desperdicio físico impacta directamente sobre el costo original, absorbiendo las mermas operativas antes de aplicar la tasa de margen neto.</p>
-                    </div>
-
-                    <!-- Botones de Acción Avanzada -->
-                    <div class="fila-botones-accion">
-                        <button type="button" id="btn-exportar" class="btn-secundario">📋 Copiar Cotización</button>
-                        <button type="button" id="btn-limpiar" class="btn-limpiar">🔄 Reiniciar</button>
-                    </div>
-
-                </div>
-            </section>
-        </div>
+                </li>
+            </ul>
+        </section>
     </main>
 
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>// Mini-ERP Analítico de Costos Gráficos. Desarrollado por Bruno Birman. 2026.</p>
+        <p>&copy; 2026 Bruno Birman. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- CONEXIÓN DEL SCRIPT -->
     <script src="script.js"></script>
 </body>
 </html>

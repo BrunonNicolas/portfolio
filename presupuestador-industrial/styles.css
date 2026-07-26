@@ -1,50 +1,55 @@
 /* ==========================================================================
-   1. CONFIGURACIÓN Y VARIABLES INDUSTRIALES
+   1. VARIABLES DE DISEÑO AVANZADAS Y FUENTE TECNOLÓGICA
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
     --bg-principal: #050508;    
-    --bg-paneles: #0d0e15;     
-    --bg-inputs: #141622;
+    --bg-tarjetas: #0d0e15;     
     --texto-blanco: #ffffff;    
     --texto-gris: #8892b0;      
-    --color-acento: #00f2fe;    
-    --color-alerta: #ff0055;    
-    --color-exito: #00ff66;     
-    --color-tinta: #fbc2eb;     /* Color representativo para tinta en gráfico */
+    --color-acento: #00f2fe;    /* Cian Eléctrico */
+    --color-secundario: #4facfe; /* Azul Tecnológico */
     --borde: rgba(0, 242, 254, 0.08);
-    --borde-foco: rgba(0, 242, 254, 0.4);
+    --borde-hover: rgba(0, 242, 254, 0.4);
+    --glow: rgba(0, 242, 254, 0.15);
     
     --font-titulos: 'Space Grotesk', sans-serif;
     --font-cuerpo: 'Plus Jakarta Sans', sans-serif;
+    --transition-sharp: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* ==========================================================================
-   2. ESTRUCTURA BASE Y PLANO TÉCNICO
+   2. RESETEO Y ESTRUCTURA DE FONDO (PLANOS TÉCNICOS)
    ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: var(--bg-principal);
+    /* Grilla de fondo que imita un plano técnico o layout gráfico */
     background-image: 
-        linear-gradient(rgba(0, 242, 254, 0.01) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 242, 254, 0.01) 1px, transparent 1px);
-    background-size: 30px 30px;
+        linear-gradient(rgba(0, 242, 254, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 254, 0.015) 1px, transparent 1px),
+        radial-gradient(circle at 50% 0%, rgba(79, 172, 254, 0.08), transparent 60%);
+    background-size: 40px 40px, 40px 40px, 100% 100%;
     color: var(--texto-blanco);
     font-family: var(--font-cuerpo);
-    line-height: 1.5;
-    padding-top: 70px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
+/* ==========================================================================
+   3. NAVEGACIÓN FLOTANTE ESTRUCTURADA
+   ========================================================================== */
 header {
     background-color: rgba(5, 5, 8, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     position: fixed;
     top: 0;
     width: 100%;
@@ -52,414 +57,369 @@ header {
     z-index: 1000;
 }
 
-.nav-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1.2rem 2rem;
+nav ul {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 1.5rem;
+    gap: 3.5rem;
 }
 
-.logo {
-    font-family: var(--font-titulos);
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
+nav a {
     color: var(--texto-gris);
-}
-
-.btn-volver {
-    color: var(--color-acento);
     font-family: var(--font-titulos);
     text-decoration: none;
-    font-size: 0.85rem;
     font-weight: 500;
-    letter-spacing: 0.05em;
-    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    transition: var(--transition-sharp);
 }
 
-.btn-volver:hover {
-    text-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
+nav a:hover {
+    color: var(--color-acento);
+    text-shadow: 0 0 10px var(--glow);
 }
 
 /* ==========================================================================
-   3. DISPOSICIÓN EN GRILLA (LAYOUT)
+   4. MAQUETADO Y TIJERAS DE CONTENIDO (LAYOUT)
    ========================================================================== */
-.contenedor-calculadora {
-    max-width: 1100px;
-    margin: 3rem auto;
+main {
+    max-width: 800px;
+    margin: 10rem auto 6rem auto;
     padding: 0 2rem;
 }
 
-.titulo-seccion {
-    margin-bottom: 2.5rem;
+section {
+    padding: 6rem 0;
+    position: relative;
 }
 
-.titulo-seccion h1 {
+/* Líneas verticales decorativas a los costados de la sección para dar peso visual */
+section::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--borde), transparent);
+}
+
+h1 {
     font-family: var(--font-titulos);
-    font-size: 2.2rem;
+    font-size: 3.8rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #ffffff, var(--color-acento));
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff 30%, var(--color-secundario) 70%, var(--color-acento) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.titulo-seccion p {
-    color: var(--texto-gris);
-    font-size: 0.95rem;
-    margin-top: 0.4rem;
-}
-
-.panel-grilla {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: start;
-}
-
-section {
-    background-color: var(--bg-paneles);
-    border: 1px solid var(--borde);
-    border-radius: 4px;
-    padding: 2.5rem;
-}
-
-section h2 {
+h2 {
     font-family: var(--font-titulos);
     font-size: 1.1rem;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.2em;
+    color: var(--color-acento);
     text-transform: uppercase;
-    color: #e2e8f0;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--borde);
-    padding-bottom: 0.7rem;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
 }
 
-.subtitulo-panel {
-    margin-top: 2rem;
+h2::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--borde-hover), transparent);
+    margin-left: 1.5rem;
+}
+
+h3 {
+    font-family: var(--font-titulos);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--texto-blanco);
+    margin-bottom: 0.8rem;
+}
+
+p {
+    color: var(--texto-gris);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
 }
 
 /* ==========================================================================
-   4. FORMULARIOS E INPUTS
+   5. COMPONENTES VISUALES E INDUSTRIALES
    ========================================================================== */
-.grupo-control {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1.2rem;
+
+/* Hero / Inicio */
+#inicio {
+    padding-bottom: 7rem;
 }
 
-.fila-controles {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+#inicio h2 {
     color: var(--texto-gris);
-}
-
-input[type="number"], select {
-    background-color: var(--bg-inputs);
-    border: 1px solid var(--borde);
-    border-radius: 4px;
-    padding: 0.8rem 1rem;
-    color: var(--texto-blanco);
-    font-family: var(--font-cuerpo);
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    width: 100%;
-}
-
-input[type="number"]:focus, select:focus {
-    outline: none;
-    border-color: var(--borde-foco);
-    box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
-}
-
-.check-box-container {
-    flex-direction: row;
-    align-items: center;
-    gap: 0.8rem;
-    background-color: rgba(20, 22, 34, 0.3);
-    padding: 0.8rem;
-    border: 1px dashed var(--borde);
-    border-radius: 4px;
-    margin-bottom: 1.5rem;
-    cursor: pointer;
-}
-
-.check-box-container input[type="checkbox"] {
-    accent-color: var(--color-acento);
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-}
-
-.check-box-container label {
-    cursor: pointer;
     text-transform: none;
-    font-size: 0.9rem;
-    color: #e2e8f0;
+    font-size: 1.4rem;
+    font-family: var(--font-cuerpo);
+    letter-spacing: -0.01em;
+    margin-bottom: 2.5rem;
 }
+#inicio h2::after { display: none; }
 
-.btn-principal {
-    width: 100%;
-    background: linear-gradient(135deg, #4facfe, var(--color-acento));
+#inicio a {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-secundario), var(--color-acento));
     color: var(--bg-principal);
-    border: none;
-    padding: 1rem;
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    text-decoration: none;
     font-family: var(--font-titulos);
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 1rem;
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+    transition: var(--transition-sharp);
 }
 
-.btn-principal:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+#inicio a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
+}
+
+/* Bloques de Habilidades (Tags Tecnológicas) */
+#sobre-mi h3 {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--texto-gris);
+}
+
+#sobre-mi ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+#sobre-mi li {
+    background-color: rgba(13, 14, 21, 0.6);
+    border: 1px solid var(--borde);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-family: var(--font-titulos);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #e2e8f0;
+    transition: var(--transition-sharp);
+}
+
+#sobre-mi li:hover {
+    border-color: var(--color-acento);
+    background-color: rgba(0, 242, 254, 0.02);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
+}
+
+/* Contenedor de botones de filtro */
+.filtros-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* Botones con estética Cyberpunk */
+.btn-filtro {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #00f0ff;
+    color: #00f0ff;
+    padding: 8px 16px;
+    font-family: var(--font-titulos);
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
+}
+
+.btn-filtro:hover {
+    background: #00f0ff;
+    color: #000;
+    box-shadow: 0 0 15px #00f0ff;
+}
+
+.btn-filtro.active {
+    background: #00f0ff;
+    color: #000;
+    box-shadow: 0 0 15px #00f0ff;
+    font-weight: bold;
+}
+
+/* Tarjetas de Proyectos Avanzadas (Aspecto de Panel) */
+#proyectos {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+article {
+    background-color: var(--bg-tarjetas);
+    border: 1px solid var(--borde);
+    padding: 3rem;
+    border-radius: 4px; 
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+/* Detalle gráfico en la esquina superior derecha del panel */
+article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: var(--borde);
+    transition: var(--transition-sharp);
+}
+
+article:hover {
+    border-color: #ff0055 !important; /* Borde magenta neón reactivo */
+    transform: translateY(-5px) scale(1.01) !important;
+    box-shadow: 0 0 25px rgba(255, 0, 85, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2) !important;
+}
+
+article:hover::before {
+    background-color: #ff0055;
+}
+
+article span {
+    display: inline-block;
+    margin-top: 2rem;
+    font-family: var(--font-titulos);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-acento);
+    letter-spacing: 0.08em;
+    border-left: 2px solid var(--color-acento);
+    padding-left: 0.7rem;
+}
+
+/* Clase auxiliar para cuando JavaScript oculta proyectos */
+.oculto {
+    display: none !important;
 }
 
 /* ==========================================================================
-   5. REPORTES ANALÍTICOS Y GRÁFICOS (DINÁMICOS)
+   6. BLOQUE DE CONTACTO PREMIUM (SIMETRÍA COMPLETA Y ALINEACIÓN)
    ========================================================================== */
-.resultado-placeholder {
-    text-align: center;
+#contacto ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    align-items: stretch; /* Obliga a todas las tarjetas a tener la misma altura */
+}
+
+#contacto li {
+    display: flex;
+}
+
+#contacto li a, #contacto li div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    width: 100%;
+    min-height: 125px; /* Asegura un alto mínimo uniforme */
+    background-color: var(--bg-tarjetas);
+    border: 1px solid var(--borde);
+    padding: 2rem;
+    border-radius: 4px;
+    text-decoration: none;
     color: var(--texto-gris);
     font-size: 0.95rem;
-    padding: 4rem 1rem;
-    border: 1px dashed rgba(136, 146, 176, 0.15);
-    border-radius: 4px;
+    transition: var(--transition-sharp);
+    position: relative; /* Necesario para colocar el botón absoluto */
 }
 
-.tarjeta-totales {
-    background: linear-gradient(135deg, rgba(0, 255, 102, 0.02), rgba(0, 242, 254, 0.02));
-    border: 1px solid rgba(0, 255, 102, 0.15);
-    padding: 1.5rem;
-    border-radius: 4px;
-    margin-bottom: 1.5rem;
+#contacto li a:hover {
+    border-color: var(--color-acento);
+    background-color: rgba(0, 242, 254, 0.02);
+    color: var(--texto-blanco);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.1);
 }
 
-.item-total {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.item-total span:first-child {
+#contacto strong {
+    display: block;
     font-family: var(--font-titulos);
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    color: var(--texto-gris);
-}
-
-.monto-total {
-    font-family: var(--font-titulos);
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--color-exito);
-    text-shadow: 0 0 15px rgba(0, 255, 102, 0.25);
-}
-
-/* Estilos del Gráfico Conic-Gradient */
-.contenedor-grafico {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: rgba(20, 22, 34, 0.2);
-    border: 1px solid var(--borde);
-    padding: 1.2rem;
-    border-radius: 4px;
-    margin-bottom: 1.5rem;
-}
-
-.grafico-torta {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    /* Inyectado dinámicamente por JS con --p1, --p2, etc. */
-    background: conic-gradient(
-        var(--color-acento) 0% var(--p1),
-        var(--color-tinta) var(--p1) var(--p2),
-        var(--color-alerta) var(--p2) var(--p3),
-        #71717a var(--p3) 100%
-    );
-    transition: all 0.5s ease;
-}
-
-.grafico-leyenda {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem 1rem;
-}
-
-.leyenda-item {
     font-size: 0.8rem;
-    color: var(--texto-gris);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    display: inline-block;
-}
-.dot.mat { background-color: var(--color-acento); }
-.dot.tnt { background-color: var(--color-tinta); }
-.dot.cnc { background-color: #71717a; }
-.dot.mrm { background-color: var(--color-alerta); }
-
-/* Listado de Métricas */
-.metrica-header {
-    font-family: var(--font-titulos);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--texto-gris);
     text-transform: uppercase;
-    border-left: 2px solid var(--color-acento);
-    padding-left: 0.5rem;
-    margin-bottom: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--color-acento);
+    margin-bottom: 0.5rem;
 }
 
-.lista-metricas {
+/* Caja contenedora del Email */
+.contacto-email-box {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
 }
 
-.metrica-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9rem;
-    color: #e2e8f0;
-    padding-bottom: 0.4rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-}
-
-.metrica-item span {
-    color: var(--texto-gris);
-}
-
-.decorado-alerta span:first-child, .decorado-alerta span:last-child {
-    color: var(--color-alerta);
-}
-
-.linea-divisoria {
-    border-top: 1px solid var(--borde);
-    border-bottom: none;
-    padding-top: 0.8rem;
-    margin-top: 0.4rem;
-}
-
-.linea-divisoria strong {
-    font-family: var(--font-titulos);
-    font-size: 1rem;
-}
-
-.alerta-industrial {
-    margin-top: 1.5rem;
-    background-color: rgba(255, 0, 85, 0.01);
-    border-left: 3px solid var(--color-alerta);
-    padding: 0.8rem;
-    border-radius: 0 4px 4px 0;
-}
-
-.alerta-industrial p {
-    font-size: 0.78rem;
-    color: var(--texto-gris);
-    line-height: 1.4;
-}
-
-/* Botones de acción avanzados */
-.fila-botones-accion {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.btn-secundario {
-    background: transparent;
+/* Rediseño del botón flotante absoluto */
+.btn-cyber-mini {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.6);
     border: 1px solid var(--color-acento);
     color: var(--color-acento);
-    padding: 0.8rem;
+    padding: 3px 8px;
     font-family: var(--font-titulos);
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 4px;
+    font-size: 0.65rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-secundario:hover {
-    background-color: rgba(0, 242, 254, 0.04);
-    box-shadow: 0 0 12px rgba(0, 242, 254, 0.15);
-}
-
-.btn-limpiar {
-    background: transparent;
-    border: 1px solid var(--texto-gris);
-    color: var(--texto-gris);
-    padding: 0.8rem;
-    font-family: var(--font-titulos);
-    font-weight: 600;
-    font-size: 0.85rem;
     text-transform: uppercase;
-    border-radius: 4px;
-    cursor: pointer;
+    letter-spacing: 1px;
     transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
+    border-radius: 2px;
 }
 
-.btn-limpiar:hover {
-    border-color: var(--color-alerta);
-    color: var(--color-alerta);
-    background-color: rgba(255, 0, 85, 0.03);
+.btn-cyber-mini:hover {
+    background: var(--color-acento);
+    color: #000;
+    box-shadow: 0 0 10px var(--color-acento);
 }
 
 /* ==========================================================================
-   6. ANIMACIONES Y CONTROL DE ESTADO
+   7. FOOTER Y RESPONSIVE
    ========================================================================== */
-.oculto { display: none !important; }
-
-.animate-fade-in {
-    animation: fadeIn 0.4s ease forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 footer {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
     color: #3f3f46;
     font-family: var(--font-titulos);
     font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    border-top: 1px solid var(--borde);
 }
 
-@media (max-width: 850px) {
-    .panel-grilla { grid-template-columns: 1fr; }
-    .titulo-seccion h1 { font-size: 1.8rem; }
-    section { padding: 1.8rem; }
+@media (max-width: 768px) {
+    h1 { font-size: 2.6rem; }
+    #inicio h2 { font-size: 1.2rem; }
+    nav ul { gap: 1.5rem; padding: 1.2rem; }
+    article { padding: 2rem; }
+    section::before { display: none; }
+    #contacto ul { grid-template-columns: 1fr; }
 }
